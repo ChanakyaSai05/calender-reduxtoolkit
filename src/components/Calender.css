@@ -1,0 +1,45 @@
+body {
+  background-color: #104f71;
+}
+.calender-container {
+  display: flex;
+  justify-content: center;
+  /* width: 100vw; */
+  /* width is no need to write if you don't want to adjust inner container width */
+}
+h1 {
+  font-size: 70px;
+  text-transform: uppercase;
+}
+.calender-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  /* width: 25vw; */
+}
+#calender-display {
+  font-size: 30px;
+  border: 1px solid #ffffff;
+}
+.month-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.calender-container-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.left-arrow,
+.right-arrow {
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bolder;
+}
+.inputYear {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
