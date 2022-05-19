@@ -26,6 +26,7 @@ h1 {
 .month-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  cursor: pointer;
 }
 .calender-container-child {
   display: grid;
@@ -42,4 +43,9 @@ h1 {
   border-left: none;
   border-right: none;
   outline: none;
+}
+.change-month {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  cursor: pointer;
 }

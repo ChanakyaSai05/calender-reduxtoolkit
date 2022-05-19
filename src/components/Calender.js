@@ -97,11 +97,6 @@ function Calender() {
             >
               <Box sx={style}>
                 <div>
-                  {Months.map((item, index) => (
-                    <div key={item + index} onClick={() => changeMonth(index)}>
-                      {item}
-                    </div>
-                  ))}
                   <div>
                     <input
                       type="text"
@@ -110,6 +105,16 @@ function Calender() {
                       value={year}
                       onChange={(e) => setYear(e.target.value)}
                     />
+                  </div>
+                  <div className="change-month">
+                    {Months.map((item, index) => (
+                      <div
+                        key={item + index}
+                        onClick={() => changeMonth(index)}
+                      >
+                        {item}
+                      </div>
+                    ))}
                   </div>
                   <Button onClick={handleClose}>Close </Button>
                 </div>
