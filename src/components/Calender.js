@@ -29,21 +29,7 @@ function Calender() {
   const dispatch = useDispatch();
   console.log(user);
   console.log(user.days);
-  // let days = [...user.days];
-  // let rows = [];
-  // let cells = [];
-  // days.forEach((item, index) => {
-  //   if (index % 7 !== 0) {
-  //     cells.push(item);
-  //   } else {
-  //     rows.push(cells);
-  //     cells = [];
-  //     cells.push(item);
-  //   }
-  //   if (index === days.length - 1) {
-  //     rows.push(cells);
-  //   }
-  // });
+
   const changeMonth = (arrow) => {
     let selectedMonth;
     let selectedYear;
@@ -82,13 +68,23 @@ function Calender() {
       })
     );
   };
+  const todayBtn = () => {
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+    dispatch(
+      CHANGE_MONTH({
+        selectedMonth: month,
+        selectedYear: year,
+      })
+    );
+    setYear(year);
+  };
   return (
     <div className="calender-container">
       <div className="calender-inner-container">
-        <h2>Calender</h2>
+        <h2>Calendar</h2>
         <div id="calender-display">
           <div>
-            {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <Modal
               open={open}
               onClose={handleClose}
@@ -105,6 +101,7 @@ function Calender() {
                       value={year}
                       onChange={(e) => setYear(e.target.value)}
                     />
+                    <Button onClick={todayBtn}>Today</Button>
                   </div>
                   <div className="change-month">
                     {Months.map((item, index) => (
@@ -125,7 +122,7 @@ function Calender() {
             <div className="left-arrow" onClick={() => changeMonth("LEFT")}>
               {"<"}
             </div>
-            <div onClick={handleOpen}>
+            <div onClick={handleOpen} style={{ cursor: "pointer" }}>
               {Months[user.selectedMonth]},{user.selectedYear}
             </div>
             <div className="right-arrow" onClick={() => changeMonth("RIGHT")}>
@@ -133,13 +130,13 @@ function Calender() {
             </div>
           </div>
           <div className="calender-container-child">
-            <div>Sunday</div>
-            <div>Monday</div>
-            <div>Tuesday</div>
-            <div>Wednesday</div>
-            <div>Thursday</div>
-            <div>Friday</div>
-            <div>Saturday</div>
+            <div>S</div>
+            <div>M</div>
+            <div>T</div>
+            <div>W</div>
+            <div>T</div>
+            <div>F</div>
+            <div>S</div>
           </div>
           <div className="calender-container-child">
             {user.days.map((item, index) => (
